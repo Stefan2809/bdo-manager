@@ -29,12 +29,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        guildButton = new javax.swing.JButton();
+        classesButton = new javax.swing.JButton();
+        skillButton = new javax.swing.JButton();
+        equipmentButton = new javax.swing.JButton();
+        nodewarButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
@@ -43,18 +42,40 @@ public class MainWindow extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
 
-        jButton1.setText("Guild");
+        guildButton.setText("Guild");
+        guildButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guildButtonMouseClicked(evt);
+            }
+        });
 
-        jButton6.setText("Classes");
+        classesButton.setText("Classes");
+        classesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                classesButtonMouseClicked(evt);
+            }
+        });
 
-        jButton5.setText("Skills");
+        skillButton.setText("Skills");
+        skillButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                skillButtonMouseClicked(evt);
+            }
+        });
 
-        jButton4.setText("Equipment");
+        equipmentButton.setText("Equipment");
+        equipmentButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                equipmentButtonMouseClicked(evt);
+            }
+        });
 
-        jButton2.setText("Node War");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel2.setText("Management");
+        nodewarButton.setText("Node War");
+        nodewarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nodewarButtonMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,41 +88,33 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(equipmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nodewarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(guildButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(classesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(skillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(jButton1)
+                .addComponent(guildButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(nodewarButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6)
+                .addComponent(classesButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(skillButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(equipmentButton)
                 .addGap(133, 133, 133)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel1.getAccessibleContext().setAccessibleParent(background);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(" "));
 
@@ -147,6 +160,26 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void guildButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guildButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guildButtonMouseClicked
+
+    private void nodewarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nodewarButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nodewarButtonMouseClicked
+
+    private void classesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_classesButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_classesButtonMouseClicked
+
+    private void skillButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_skillButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skillButtonMouseClicked
+
+    private void equipmentButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_equipmentButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_equipmentButtonMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -184,15 +217,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JButton classesButton;
+    private javax.swing.JButton equipmentButton;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton guildButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton nodewarButton;
+    private javax.swing.JButton skillButton;
     // End of variables declaration//GEN-END:variables
 }
