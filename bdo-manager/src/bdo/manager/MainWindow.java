@@ -28,19 +28,29 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        jPanel1 = new javax.swing.JPanel();
+        menuPanel = new javax.swing.JPanel();
+        mainMenu = new javax.swing.JPanel();
         guildButton = new javax.swing.JButton();
         classesButton = new javax.swing.JButton();
         skillButton = new javax.swing.JButton();
         equipmentButton = new javax.swing.JButton();
         nodewarButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        guildname = new javax.swing.JLabel();
+        guildMenu = new javax.swing.JPanel();
+        addMember = new javax.swing.JButton();
+        deleteMember = new javax.swing.JButton();
+        backMainMenu = new javax.swing.JButton();
+        guiPanel = new javax.swing.JPanel();
+        startscreen = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
+        guildoverview = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
+        menuPanel.setLayout(new java.awt.CardLayout());
+
+        mainMenu.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
 
         guildButton.setText("Guild");
         guildButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,30 +87,30 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ThelynEnnor");
+        guildname.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        guildname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        guildname.setText("ThelynEnnor");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout mainMenuLayout = new javax.swing.GroupLayout(mainMenu);
+        mainMenu.setLayout(mainMenuLayout);
+        mainMenuLayout.setHorizontalGroup(
+            mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuLayout.createSequentialGroup()
+                .addComponent(guildname, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 4, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainMenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(equipmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nodewarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(guildButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(classesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(skillButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        mainMenuLayout.setVerticalGroup(
+            mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
                 .addComponent(guildButton)
                 .addGap(18, 18, 18)
@@ -112,24 +122,111 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(equipmentButton)
                 .addGap(133, 133, 133)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(guildname, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(" "));
+        menuPanel.add(mainMenu, "card2");
+
+        guildMenu.setBorder(javax.swing.BorderFactory.createTitledBorder("Guild Menu"));
+
+        addMember.setText("Add Member");
+        addMember.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMemberMouseClicked(evt);
+            }
+        });
+
+        deleteMember.setText("Delete Member");
+        deleteMember.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMemberMouseClicked(evt);
+            }
+        });
+
+        backMainMenu.setText("Back");
+        backMainMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMainMenuMouseClicked(evt);
+            }
+        });
+        backMainMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backMainMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout guildMenuLayout = new javax.swing.GroupLayout(guildMenu);
+        guildMenu.setLayout(guildMenuLayout);
+        guildMenuLayout.setHorizontalGroup(
+            guildMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(guildMenuLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(guildMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMember, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(guildMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(deleteMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backMainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        guildMenuLayout.setVerticalGroup(
+            guildMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(guildMenuLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(addMember)
+                .addGap(18, 18, 18)
+                .addComponent(deleteMember)
+                .addGap(18, 18, 18)
+                .addComponent(backMainMenu)
+                .addContainerGap(440, Short.MAX_VALUE))
+        );
+
+        menuPanel.add(guildMenu, "card3");
+
+        guiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(" "));
+        guiPanel.setLayout(new java.awt.CardLayout());
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/wallpaper.jpg"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout startscreenLayout = new javax.swing.GroupLayout(startscreen);
+        startscreen.setLayout(startscreenLayout);
+        startscreenLayout.setHorizontalGroup(
+            startscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1024, Short.MAX_VALUE)
+            .addGroup(startscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(startscreenLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(background)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        startscreenLayout.setVerticalGroup(
+            startscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 576, Short.MAX_VALUE)
+            .addGroup(startscreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(startscreenLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(background)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+        guiPanel.add(startscreen, "card2");
+
+        guildoverview.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        guildoverview.setViewportView(jTable1);
+
+        guiPanel.add(guildoverview, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,10 +238,10 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(246, 246, 246))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(guiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,16 +249,30 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(guiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void guildButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guildButtonMouseClicked
-        // TODO add your handling code here:
+        guiPanel.removeAll();
+        guiPanel.repaint();
+        guiPanel.revalidate();
+        
+        guiPanel.add(guildoverview);
+        guiPanel.repaint();
+        guiPanel.revalidate();
+        
+        menuPanel.removeAll();
+        menuPanel.repaint();
+        menuPanel.revalidate();
+        
+        menuPanel.add(guildMenu);
+        menuPanel.repaint();
+        menuPanel.revalidate();
+// TODO add your handling code here:
     }//GEN-LAST:event_guildButtonMouseClicked
 
     private void nodewarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nodewarButtonMouseClicked
@@ -179,6 +290,37 @@ public class MainWindow extends javax.swing.JFrame {
     private void equipmentButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_equipmentButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_equipmentButtonMouseClicked
+
+    private void backMainMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMainMenuMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backMainMenuMouseClicked
+
+    private void addMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMemberMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addMemberMouseClicked
+
+    private void deleteMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMemberMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteMemberMouseClicked
+
+    private void backMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backMainMenuActionPerformed
+        guiPanel.removeAll();
+        guiPanel.repaint();
+        guiPanel.revalidate();
+        
+        guiPanel.add(startscreen);
+        guiPanel.repaint();
+        guiPanel.revalidate();
+        
+        menuPanel.removeAll();
+        menuPanel.repaint();
+        menuPanel.revalidate();
+        
+        menuPanel.add(mainMenu);
+        menuPanel.repaint();
+        menuPanel.revalidate();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backMainMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,15 +358,23 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addMember;
+    private javax.swing.JButton backMainMenu;
     private javax.swing.JLabel background;
     private javax.swing.JButton classesButton;
+    private javax.swing.JButton deleteMember;
     private javax.swing.JButton equipmentButton;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JPanel guiPanel;
     private javax.swing.JButton guildButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel guildMenu;
+    private javax.swing.JLabel guildname;
+    private javax.swing.JScrollPane guildoverview;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JPanel mainMenu;
+    private javax.swing.JPanel menuPanel;
     private javax.swing.JButton nodewarButton;
     private javax.swing.JButton skillButton;
+    private javax.swing.JPanel startscreen;
     // End of variables declaration//GEN-END:variables
 }
