@@ -356,7 +356,7 @@ public class MainWindow extends javax.swing.JFrame {
         mDLClass.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         mDLClass.setText("Class");
 
-        mDCClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        mDCClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose a class ... ", "Berserker", "Kunoichi", "Maehwa", "Musa", "Ninja", "Ranger", "Sorceress", "Tamer", "Valkyrie", "Warrior", "Witch", "Wizard" }));
         mDCClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mDCClassActionPerformed(evt);
