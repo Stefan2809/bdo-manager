@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package bdo.manager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Stefan
@@ -29,7 +31,6 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        guildoverview = new javax.swing.JScrollPane();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         menuPanel = new javax.swing.JPanel();
         mainMenu = new javax.swing.JPanel();
@@ -90,8 +91,8 @@ public class MainWindow extends javax.swing.JFrame {
         earringLabel1 = new javax.swing.JLabel();
         ringLabel2 = new javax.swing.JLabel();
         beltLabel = new javax.swing.JLabel();
-
-        guildoverview.setPreferredSize(new java.awt.Dimension(1024, 576));
+        guildoverview = new javax.swing.JScrollPane();
+        memberlist = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -356,7 +357,7 @@ public class MainWindow extends javax.swing.JFrame {
         mDLClass.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         mDLClass.setText("Class");
 
-        mDCClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose a class ... ", "Berserker", "Kunoichi", "Maehwa", "Musa", "Ninja", "Ranger", "Sorceress", "Tamer", "Valkyrie", "Warrior", "Witch", "Wizard" }));
+        mDCClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose Class ...", "Berserker", "Kunoichi", "Maehwa", "Musa", "Ninja", "Ranger", "Sorceress", "Tamer", "Valkyrie", "Warrior", "Witch", "Wizard" }));
         mDCClass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mDCClassActionPerformed(evt);
@@ -518,8 +519,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addGroup(mDPArmorLayout.createSequentialGroup()
                                         .addComponent(secondarycLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(secondarycLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(62, 62, 62))
+                                        .addComponent(secondarycLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(mDPArmorLayout.createSequentialGroup()
                                 .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ringLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -533,8 +533,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addGroup(mDPArmorLayout.createSequentialGroup()
                                         .addComponent(neglaceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(ringLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(ringLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(mDPArmorLayout.createSequentialGroup()
                         .addComponent(helmetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -634,6 +633,29 @@ public class MainWindow extends javax.swing.JFrame {
 
         guiPanel.add(addMemberPanel, "card4");
 
+        guildoverview.setAutoscrolls(true);
+        guildoverview.setPreferredSize(new java.awt.Dimension(1024, 576));
+
+        memberlist.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Family Name", "First Name", "Level", "Class", "Rank"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        guildoverview.setViewportView(memberlist);
+
+        guiPanel.add(guildoverview, "card5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -670,6 +692,22 @@ public class MainWindow extends javax.swing.JFrame {
         guiPanel.add(guildoverview);
         guiPanel.repaint();
         guiPanel.revalidate();
+        
+        /*
+         * TODO: get Table Member, add them to table
+         */
+        
+        try {
+            DBConnector db = new DBConnector();
+            ResultSet res = db.viewMember();
+            DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
+             while (res.next()) {
+                Object[] row = {res.getString("lastname"), res.getString("firstname"), res.getString("level"), res.getString("class"), "Member"};
+                dtm.addRow(row);
+            }            
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         menuPanel.removeAll();
         menuPanel.repaint();
@@ -709,7 +747,7 @@ public class MainWindow extends javax.swing.JFrame {
         guiPanel.add(addMemberPanel);
         guiPanel.repaint();
         guiPanel.revalidate();
-        
+                
         menuPanel.removeAll();
         menuPanel.repaint();
         menuPanel.revalidate();
@@ -720,7 +758,13 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_addMemberMouseClicked
 
     private void deleteMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMemberMouseClicked
-        // TODO add your handling code here:
+        DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
+        int[] selectedRows = memberlist.getSelectedRows();
+        if (selectedRows.length > 0) {
+            for (int i = selectedRows.length - 1; i >= 0; i--) {
+                dtm.removeRow(selectedRows[i]);
+            }
+        }       
     }//GEN-LAST:event_deleteMemberMouseClicked
 
     private void backMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backMainMenuActionPerformed
@@ -748,11 +792,35 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void saveMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMemberMouseClicked
         try {
-            DBConnector db = new DBConnector();            
+            DBConnector db = new DBConnector();
+            String firstname = mDTFirstName.getText();
+            String lastname = mDTLastName.getText();
+            Integer level = (Integer)mDSLevel.getValue();
+            String cl = (String)mDCClass.getSelectedItem().toString();
+            db.addMember(firstname, lastname, level, cl);
+            DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
+            Object[] row = {lastname, firstname, level, cl, "Member"};
+            dtm.addRow(row);           
         } catch (SQLException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        db.addMeasurementData(measurementId, i, Parameter.getValueOfErgebnis(i), Counter.getCounter1(), Counter.getCounter2(), Counter.getCounter3());
+
+        guiPanel.removeAll();
+        guiPanel.repaint();
+        guiPanel.revalidate();
+        
+        guiPanel.add(guildoverview);
+        guiPanel.repaint();
+        guiPanel.revalidate();
+        
+        menuPanel.removeAll();
+        menuPanel.repaint();
+        menuPanel.revalidate();
+        
+        menuPanel.add(guildMenu);
+        menuPanel.repaint();
+        menuPanel.revalidate();
+        
     }//GEN-LAST:event_saveMemberMouseClicked
 
     private void backGuildMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backGuildMenuMouseClicked
@@ -861,6 +929,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel mainMenu;
     private javax.swing.JLabel maincLabel1;
     private javax.swing.JLabel maincLabel2;
+    private javax.swing.JTable memberlist;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JLabel neglaceLabel;
     private javax.swing.JButton nodewarButton;
