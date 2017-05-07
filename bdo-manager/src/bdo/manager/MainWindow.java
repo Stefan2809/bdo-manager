@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package bdo.manager;
-
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Stefan
@@ -52,19 +54,6 @@ public class MainWindow extends javax.swing.JFrame {
         addMemberPanel = new javax.swing.JPanel();
         mDPEquip = new javax.swing.JPanel();
         empty = new javax.swing.JPanel();
-        mDCArmor = new javax.swing.JPanel();
-        mDCHelmet = new javax.swing.JPanel();
-        mDCGloves = new javax.swing.JPanel();
-        mDCShoes = new javax.swing.JPanel();
-        mDCRing = new javax.swing.JPanel();
-        mDCEarring = new javax.swing.JPanel();
-        mDCHelmet6 = new javax.swing.JPanel();
-        mDCHelmet7 = new javax.swing.JPanel();
-        mDCNeclase = new javax.swing.JPanel();
-        mDCMainW = new javax.swing.JPanel();
-        mDCSecondaryW = new javax.swing.JPanel();
-        mDCAwakened = new javax.swing.JPanel();
-        mDCBelt = new javax.swing.JPanel();
         mDPData = new javax.swing.JPanel();
         mDLFirstName = new javax.swing.JLabel();
         mDLLastName = new javax.swing.JLabel();
@@ -75,32 +64,32 @@ public class MainWindow extends javax.swing.JFrame {
         mDCClass = new javax.swing.JComboBox<>();
         mDSLevel = new javax.swing.JSpinner();
         mDPArmor = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        helmetLabel = new javax.swing.JLabel();
+        earringLabel2 = new javax.swing.JLabel();
+        neglaceLabel = new javax.swing.JLabel();
+        alchemieLabel = new javax.swing.JLabel();
+        armorLabel = new javax.swing.JLabel();
+        ringLabel1 = new javax.swing.JLabel();
+        shoesLabel = new javax.swing.JLabel();
+        glovesLabel = new javax.swing.JLabel();
+        mainLabel = new javax.swing.JLabel();
+        secondaryLabel = new javax.swing.JLabel();
+        awLabel = new javax.swing.JLabel();
+        helmetcLabel2 = new javax.swing.JLabel();
+        armorcLabel1 = new javax.swing.JLabel();
+        armorcLabel2 = new javax.swing.JLabel();
+        glovescLabel1 = new javax.swing.JLabel();
+        glovescLabel2 = new javax.swing.JLabel();
+        helmetcLabel1 = new javax.swing.JLabel();
+        shoescLabel1 = new javax.swing.JLabel();
+        shoescLabel2 = new javax.swing.JLabel();
+        maincLabel1 = new javax.swing.JLabel();
+        maincLabel2 = new javax.swing.JLabel();
+        secondarycLabel2 = new javax.swing.JLabel();
+        secondarycLabel1 = new javax.swing.JLabel();
+        earringLabel1 = new javax.swing.JLabel();
+        ringLabel2 = new javax.swing.JLabel();
+        beltLabel = new javax.swing.JLabel();
 
         guildoverview.setPreferredSize(new java.awt.Dimension(1024, 576));
 
@@ -338,203 +327,20 @@ public class MainWindow extends javax.swing.JFrame {
 
         mDPEquip.setLayout(new java.awt.CardLayout());
 
+        empty.setBorder(javax.swing.BorderFactory.createTitledBorder("Equipment"));
+
         javax.swing.GroupLayout emptyLayout = new javax.swing.GroupLayout(empty);
         empty.setLayout(emptyLayout);
         emptyLayout.setHorizontalGroup(
             emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
         );
         emptyLayout.setVerticalGroup(
             emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 533, Short.MAX_VALUE)
         );
 
         mDPEquip.add(empty, "card12");
-
-        javax.swing.GroupLayout mDCHelmetLayout = new javax.swing.GroupLayout(mDCHelmet);
-        mDCHelmet.setLayout(mDCHelmetLayout);
-        mDCHelmetLayout.setHorizontalGroup(
-            mDCHelmetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-        mDCHelmetLayout.setVerticalGroup(
-            mDCHelmetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 546, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout mDCArmorLayout = new javax.swing.GroupLayout(mDCArmor);
-        mDCArmor.setLayout(mDCArmorLayout);
-        mDCArmorLayout.setHorizontalGroup(
-            mDCArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mDCHelmet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        mDCArmorLayout.setVerticalGroup(
-            mDCArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mDCArmorLayout.createSequentialGroup()
-                .addComponent(mDCHelmet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        mDPEquip.add(mDCArmor, "card2");
-
-        javax.swing.GroupLayout mDCGlovesLayout = new javax.swing.GroupLayout(mDCGloves);
-        mDCGloves.setLayout(mDCGlovesLayout);
-        mDCGlovesLayout.setHorizontalGroup(
-            mDCGlovesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCGlovesLayout.setVerticalGroup(
-            mDCGlovesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCGloves, "card2");
-
-        javax.swing.GroupLayout mDCShoesLayout = new javax.swing.GroupLayout(mDCShoes);
-        mDCShoes.setLayout(mDCShoesLayout);
-        mDCShoesLayout.setHorizontalGroup(
-            mDCShoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCShoesLayout.setVerticalGroup(
-            mDCShoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCShoes, "card2");
-
-        javax.swing.GroupLayout mDCRingLayout = new javax.swing.GroupLayout(mDCRing);
-        mDCRing.setLayout(mDCRingLayout);
-        mDCRingLayout.setHorizontalGroup(
-            mDCRingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCRingLayout.setVerticalGroup(
-            mDCRingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCRing, "card2");
-
-        javax.swing.GroupLayout mDCHelmet7Layout = new javax.swing.GroupLayout(mDCHelmet7);
-        mDCHelmet7.setLayout(mDCHelmet7Layout);
-        mDCHelmet7Layout.setHorizontalGroup(
-            mDCHelmet7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCHelmet7Layout.setVerticalGroup(
-            mDCHelmet7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout mDCHelmet6Layout = new javax.swing.GroupLayout(mDCHelmet6);
-        mDCHelmet6.setLayout(mDCHelmet6Layout);
-        mDCHelmet6Layout.setHorizontalGroup(
-            mDCHelmet6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(mDCHelmet6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mDCHelmet6Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(mDCHelmet7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        mDCHelmet6Layout.setVerticalGroup(
-            mDCHelmet6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(mDCHelmet6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mDCHelmet6Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(mDCHelmet7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout mDCEarringLayout = new javax.swing.GroupLayout(mDCEarring);
-        mDCEarring.setLayout(mDCEarringLayout);
-        mDCEarringLayout.setHorizontalGroup(
-            mDCEarringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(mDCEarringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mDCEarringLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(mDCHelmet6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        mDCEarringLayout.setVerticalGroup(
-            mDCEarringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(mDCEarringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mDCEarringLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(mDCHelmet6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        mDPEquip.add(mDCEarring, "card2");
-
-        javax.swing.GroupLayout mDCNeclaseLayout = new javax.swing.GroupLayout(mDCNeclase);
-        mDCNeclase.setLayout(mDCNeclaseLayout);
-        mDCNeclaseLayout.setHorizontalGroup(
-            mDCNeclaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCNeclaseLayout.setVerticalGroup(
-            mDCNeclaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCNeclase, "card2");
-
-        javax.swing.GroupLayout mDCMainWLayout = new javax.swing.GroupLayout(mDCMainW);
-        mDCMainW.setLayout(mDCMainWLayout);
-        mDCMainWLayout.setHorizontalGroup(
-            mDCMainWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCMainWLayout.setVerticalGroup(
-            mDCMainWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCMainW, "card10");
-
-        javax.swing.GroupLayout mDCSecondaryWLayout = new javax.swing.GroupLayout(mDCSecondaryW);
-        mDCSecondaryW.setLayout(mDCSecondaryWLayout);
-        mDCSecondaryWLayout.setHorizontalGroup(
-            mDCSecondaryWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCSecondaryWLayout.setVerticalGroup(
-            mDCSecondaryWLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCSecondaryW, "card11");
-
-        javax.swing.GroupLayout mDCAwakenedLayout = new javax.swing.GroupLayout(mDCAwakened);
-        mDCAwakened.setLayout(mDCAwakenedLayout);
-        mDCAwakenedLayout.setHorizontalGroup(
-            mDCAwakenedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCAwakenedLayout.setVerticalGroup(
-            mDCAwakenedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCAwakened, "card12");
-
-        javax.swing.GroupLayout mDCBeltLayout = new javax.swing.GroupLayout(mDCBelt);
-        mDCBelt.setLayout(mDCBeltLayout);
-        mDCBeltLayout.setHorizontalGroup(
-            mDCBeltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mDCBeltLayout.setVerticalGroup(
-            mDCBeltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        mDPEquip.add(mDCBelt, "card2");
 
         mDPData.setBorder(javax.swing.BorderFactory.createTitledBorder("Member Data"));
 
@@ -608,196 +414,197 @@ public class MainWindow extends javax.swing.JFrame {
 
         mDPArmor.setBorder(javax.swing.BorderFactory.createTitledBorder("Armor"));
 
-        jLabel2.setText("Helmet");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        helmetLabel.setText("Helmet");
+        helmetLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setText("Earring");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        earringLabel2.setText("Earring");
+        earringLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setText("Neclase");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        neglaceLabel.setText("Neglace");
+        neglaceLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel5.setText("Alchemy Stone");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        alchemieLabel.setText("Alchemy Stone");
+        alchemieLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel6.setText("Armor");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        armorLabel.setText("Armor");
+        armorLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel7.setText("Ring");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ringLabel1.setText("Ring");
+        ringLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel8.setText("Shoes");
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        shoesLabel.setText("Shoes");
+        shoesLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel9.setText("Gloves");
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        glovesLabel.setText("Gloves");
+        glovesLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel10.setText("MainWeapon");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        mainLabel.setText("MainWeapon");
+        mainLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel11.setText("Secondary Weapon");
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        secondaryLabel.setText("Secondary Weapon");
+        secondaryLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel12.setText("Awakening");
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        awLabel.setText("Awakening");
+        awLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel13.setText("jLabel1");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        helmetcLabel2.setText("jLabel1");
+        helmetcLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel14.setText("jLabel1");
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        armorcLabel1.setText("jLabel1");
+        armorcLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel15.setText("jLabel1");
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        armorcLabel2.setText("jLabel1");
+        armorcLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel16.setText("jLabel1");
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        glovescLabel1.setText("jLabel1");
+        glovescLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel17.setText("jLabel1");
-        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        glovescLabel2.setText("jLabel1");
+        glovescLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel18.setText("jLabel1");
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        helmetcLabel1.setText("jLabel1");
+        helmetcLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel19.setText("jLabel1");
-        jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        shoescLabel1.setText("jLabel1");
+        shoescLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel20.setText("jLabel1");
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        shoescLabel2.setText("jLabel1");
+        shoescLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel21.setText("jLabel1");
-        jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        maincLabel1.setText("jLabel1");
+        maincLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel22.setText("jLabel1");
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        maincLabel2.setText("jLabel1");
+        maincLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel23.setText("jLabel1");
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        secondarycLabel2.setText("jLabel1");
+        secondarycLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel24.setText("jLabel1");
-        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        secondarycLabel1.setText("jLabel1");
+        secondarycLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel25.setText("Earring");
-        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        earringLabel1.setText("Earring");
+        earringLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel26.setText("Ring");
-        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ringLabel2.setText("Ring");
+        ringLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel27.setText("Belt");
-        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        beltLabel.setText("Belt");
+        beltLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout mDPArmorLayout = new javax.swing.GroupLayout(mDPArmor);
         mDPArmor.setLayout(mDPArmorLayout);
         mDPArmorLayout.setHorizontalGroup(
             mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mDPArmorLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(37, 37, 37)
                 .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mDPArmorLayout.createSequentialGroup()
-                        .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(mDPArmorLayout.createSequentialGroup()
-                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mDPArmorLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(mDPArmorLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mDPArmorLayout.createSequentialGroup()
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(mDPArmorLayout.createSequentialGroup()
+                                        .addComponent(maincLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(maincLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(mDPArmorLayout.createSequentialGroup()
+                                        .addComponent(mainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(awLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(16, 16, 16)
+                                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(secondaryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(mDPArmorLayout.createSequentialGroup()
+                                        .addComponent(secondarycLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(secondarycLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(62, 62, 62))
                             .addGroup(mDPArmorLayout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ringLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(earringLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(16, 16, 16)
-                        .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(mDPArmorLayout.createSequentialGroup()
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(mDPArmorLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(mDPArmorLayout.createSequentialGroup()
+                                        .addComponent(beltLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(earringLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(mDPArmorLayout.createSequentialGroup()
+                                        .addComponent(neglaceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ringLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(mDPArmorLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(helmetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(armorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(glovesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(shoesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(alchemieLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mDPArmorLayout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(helmetcLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(helmetcLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(armorcLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(armorcLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(glovescLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(22, 22, 22)
-                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mDPArmorLayout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(glovescLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(shoescLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(shoescLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mDPArmorLayout.setVerticalGroup(
             mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mDPArmorLayout.createSequentialGroup()
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(armorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shoesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alchemieLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(glovesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(helmetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(armorcLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(armorcLabel2)
+                        .addComponent(glovescLabel1)
+                        .addComponent(glovescLabel2)
+                        .addComponent(helmetcLabel1)
+                        .addComponent(shoescLabel1)
+                        .addComponent(shoescLabel2)
+                        .addComponent(helmetcLabel2)))
+                .addGap(18, 18, 18)
+                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ringLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ringLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(neglaceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(earringLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(earringLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(beltLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mainLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(awLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(secondaryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(18, 18, 18)
-                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mDPArmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel23)))
+                    .addComponent(maincLabel1)
+                    .addComponent(maincLabel2)
+                    .addComponent(secondarycLabel1)
+                    .addComponent(secondarycLabel2)))
         );
 
         javax.swing.GroupLayout addMemberPanelLayout = new javax.swing.GroupLayout(addMemberPanel);
@@ -805,24 +612,24 @@ public class MainWindow extends javax.swing.JFrame {
         addMemberPanelLayout.setHorizontalGroup(
             addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMemberPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addGroup(addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(mDPData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mDPArmor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mDPEquip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addMemberPanelLayout.setVerticalGroup(
             addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addMemberPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(mDPEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mDPEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(addMemberPanelLayout.createSequentialGroup()
                         .addComponent(mDPData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(mDPArmor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(mDPArmor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(13, 13, 13))
         );
 
         guiPanel.add(addMemberPanel, "card4");
@@ -940,7 +747,12 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_mDCClassActionPerformed
 
     private void saveMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMemberMouseClicked
-        // TODO add your handling code here:
+        try {
+            DBConnector db = new DBConnector();            
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        db.addMeasurementData(measurementId, i, Parameter.getValueOfErgebnis(i), Counter.getCounter1(), Counter.getCounter2(), Counter.getCounter3());
     }//GEN-LAST:event_saveMemberMouseClicked
 
     private void backGuildMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backGuildMenuMouseClicked
@@ -1005,14 +817,25 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton addMember;
     private javax.swing.JPanel addMemberMenu;
     private javax.swing.JPanel addMemberPanel;
+    private javax.swing.JLabel alchemieLabel;
+    private javax.swing.JLabel armorLabel;
+    private javax.swing.JLabel armorcLabel1;
+    private javax.swing.JLabel armorcLabel2;
+    private javax.swing.JLabel awLabel;
     private javax.swing.JButton backGuildMenu;
     private javax.swing.JButton backMainMenu;
     private javax.swing.JLabel background;
+    private javax.swing.JLabel beltLabel;
     private javax.swing.JButton classesButton;
     private javax.swing.JButton deleteMember;
+    private javax.swing.JLabel earringLabel1;
+    private javax.swing.JLabel earringLabel2;
     private javax.swing.JPanel empty;
     private javax.swing.JButton equipmentButton;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel glovesLabel;
+    private javax.swing.JLabel glovescLabel1;
+    private javax.swing.JLabel glovescLabel2;
     private javax.swing.JPanel guiPanel;
     private javax.swing.JButton guildButton;
     private javax.swing.JPanel guildMenu;
@@ -1020,46 +843,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel guildname1;
     private javax.swing.JLabel guildname2;
     private javax.swing.JScrollPane guildoverview;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel mDCArmor;
-    private javax.swing.JPanel mDCAwakened;
-    private javax.swing.JPanel mDCBelt;
+    private javax.swing.JLabel helmetLabel;
+    private javax.swing.JLabel helmetcLabel1;
+    private javax.swing.JLabel helmetcLabel2;
     private javax.swing.JComboBox<String> mDCClass;
-    private javax.swing.JPanel mDCEarring;
-    private javax.swing.JPanel mDCGloves;
-    private javax.swing.JPanel mDCHelmet;
-    private javax.swing.JPanel mDCHelmet6;
-    private javax.swing.JPanel mDCHelmet7;
-    private javax.swing.JPanel mDCMainW;
-    private javax.swing.JPanel mDCNeclase;
-    private javax.swing.JPanel mDCRing;
-    private javax.swing.JPanel mDCSecondaryW;
-    private javax.swing.JPanel mDCShoes;
     private javax.swing.JLabel mDLClass;
     private javax.swing.JLabel mDLFirstName;
     private javax.swing.JLabel mDLLastName;
@@ -1070,10 +857,22 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner mDSLevel;
     private javax.swing.JTextField mDTFirstName;
     private javax.swing.JTextField mDTLastName;
+    private javax.swing.JLabel mainLabel;
     private javax.swing.JPanel mainMenu;
+    private javax.swing.JLabel maincLabel1;
+    private javax.swing.JLabel maincLabel2;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JLabel neglaceLabel;
     private javax.swing.JButton nodewarButton;
+    private javax.swing.JLabel ringLabel1;
+    private javax.swing.JLabel ringLabel2;
     private javax.swing.JButton saveMember;
+    private javax.swing.JLabel secondaryLabel;
+    private javax.swing.JLabel secondarycLabel1;
+    private javax.swing.JLabel secondarycLabel2;
+    private javax.swing.JLabel shoesLabel;
+    private javax.swing.JLabel shoescLabel1;
+    private javax.swing.JLabel shoescLabel2;
     private javax.swing.JButton skillButton;
     private javax.swing.JPanel startscreen;
     // End of variables declaration//GEN-END:variables
