@@ -11,14 +11,14 @@ public class DBConnector {
 	
 	Connection con;
 	
-	String conStr = "jdbc:mysql://localhost:3306/bdo-manager?user=root&password=erementar";
+	String conStr = "jdbc:mysql://localhost:3306/bdo-manager?user=root&password=";
 	
 	public DBConnector() throws SQLException {
 		con = DriverManager.getConnection(conStr);
 	}
 	
 	public Integer addMember(String firstname, String lastname, Integer level, String cl) throws SQLException {
-		PreparedStatement stmt = con.prepareStatement("INSERT INTO `member` (`firstname`, `lastname`, `level`, `class`) VALUES (?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+		PreparedStatement stmt = con.prepareStatement("INSERT INTO `member` (`firstname`, `lastname`, `level`, `cl`) VALUES (?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
 		stmt.setString(1, firstname);
                 stmt.setString(2, lastname);
                 stmt.setInt(3, level);
