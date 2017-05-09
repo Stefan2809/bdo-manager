@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+
+import entity.member;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 /**
  *
  * @author Stefan
@@ -633,9 +637,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         guiPanel.add(addMemberPanel, "card4");
 
+        guildoverview.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         guildoverview.setAutoscrolls(true);
         guildoverview.setPreferredSize(new java.awt.Dimension(1024, 576));
 
+        memberlist.setAutoCreateRowSorter(true);
         memberlist.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -702,7 +708,7 @@ public class MainWindow extends javax.swing.JFrame {
             ResultSet res = db.viewMember();
             DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
              while (res.next()) {
-                Object[] row = {res.getString("lastname"), res.getString("firstname"), res.getString("level"), res.getString("class"), "Member"};
+                Object[] row = {res.getString("lastname"), res.getString("firstname"), res.getString("level"), res.getString("cl"), "Member"};
                 dtm.addRow(row);
             }            
         } catch (SQLException ex) {
@@ -759,12 +765,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void deleteMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMemberMouseClicked
         DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
-        int[] selectedRows = memberlist.getSelectedRows();
-        if (selectedRows.length > 0) {
-            for (int i = selectedRows.length - 1; i >= 0; i--) {
-                dtm.removeRow(selectedRows[i]);
-            }
-        }       
+        int selectedRows = memberlist.convertRowIndexToModel(memberlist.getSelectedRow());
+        String help = dtm.getValueAt(selectedRows,0).toString();
+        System.out.println(help);
+        EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("bdo-managerPU");
+        EntityManager em = emf.createEntityManager();
+        member mem = em.find(member.class, (long)1);
+        em.getTransaction().begin();
+        em.remove(mem);
+        em.getTransaction().commit();
+        dtm.removeRow(selectedRows); 
     }//GEN-LAST:event_deleteMemberMouseClicked
 
     private void backMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backMainMenuActionPerformed
@@ -791,20 +801,19 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_mDCClassActionPerformed
 
     private void saveMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMemberMouseClicked
-        try {
-            DBConnector db = new DBConnector();
-            String firstname = mDTFirstName.getText();
-            String lastname = mDTLastName.getText();
-            Integer level = (Integer)mDSLevel.getValue();
-            String cl = (String)mDCClass.getSelectedItem().toString();
-            db.addMember(firstname, lastname, level, cl);
-            DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
-            Object[] row = {lastname, firstname, level, cl, "Member"};
-            dtm.addRow(row);           
-        } catch (SQLException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        member m = new member();
+        m.setFirstname(mDTFirstName.getText());
+        m.setLastname(mDTLastName.getText());
+        m.setLevel((Integer)mDSLevel.getValue());
+        m.setCl((String)mDCClass.getSelectedItem().toString());
+        m.setMember("member");
+        MainWindow mw = new MainWindow();
+        mw.persist(m);
+        
+        DefaultTableModel dtm = (DefaultTableModel)memberlist.getModel();
+        Object[] row = {mDTLastName.getText(), mDTFirstName.getText(), (Integer)mDSLevel.getValue(), (String)mDCClass.getSelectedItem().toString(), "Member"};
+        dtm.addRow(row);           
+        
         guiPanel.removeAll();
         guiPanel.repaint();
         guiPanel.revalidate();
@@ -879,6 +888,21 @@ public class MainWindow extends javax.swing.JFrame {
                 new MainWindow().setVisible(true);
             }
         });
+    }
+    
+    public void persist(Object object) {
+        EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("bdo-managerPU");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        try {
+            em.persist(object);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

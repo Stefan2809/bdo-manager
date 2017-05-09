@@ -65,7 +65,7 @@ public class member implements Serializable {
         return cl;
     }
 
-    public void setClass(String cl) {
+    public void setCl(String cl) {
         this.cl = cl;
     }
     

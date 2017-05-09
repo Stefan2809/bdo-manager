@@ -41,7 +41,7 @@ public class DBConnector {
         
         public ResultSet viewMember() throws SQLException {
             ResultSet res = null;
-            PreparedStatement stmt = con.prepareStatement("SELECT firstname,lastname, level, class FROM `member`");
+            PreparedStatement stmt = con.prepareStatement("SELECT firstname,lastname, level, cl FROM `member`");
             res = stmt.executeQuery();
             return res;
         }
