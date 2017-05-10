@@ -11,8 +11,10 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 import entity.member;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 /**
  *
  * @author Stefan
@@ -771,9 +773,14 @@ public class MainWindow extends javax.swing.JFrame {
         EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("bdo-managerPU");
         EntityManager em = emf.createEntityManager();
         member mem = em.find(member.class, (long)1);
-        em.getTransaction().begin();
-        em.remove(mem);
-        em.getTransaction().commit();
+        
+        TypedQuery<member> query = em.createQuery("SELECT m FROM member m WHERE lastname = "+"\""+help+"\"", member.class);
+        List<member> results = query.getResultList();
+        for (member m : results) {
+            em.getTransaction().begin();
+            em.remove(mem);
+            em.getTransaction().commit();
+        }
         dtm.removeRow(selectedRows); 
     }//GEN-LAST:event_deleteMemberMouseClicked
 
