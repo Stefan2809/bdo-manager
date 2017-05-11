@@ -59,8 +59,18 @@ public class MainWindow extends javax.swing.JFrame {
         startscreen = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
         addMemberPanel = new javax.swing.JPanel();
-        mDPEquip = new javax.swing.JPanel();
-        empty = new javax.swing.JPanel();
+        jTPequip = new javax.swing.JTabbedPane();
+        jPHelmet = new javax.swing.JPanel();
+        JParmor = new javax.swing.JPanel();
+        JPgloves = new javax.swing.JPanel();
+        jPshoes = new javax.swing.JPanel();
+        jPring = new javax.swing.JPanel();
+        jPearring = new javax.swing.JPanel();
+        jPbelt = new javax.swing.JPanel();
+        jPneglace = new javax.swing.JPanel();
+        jPmain = new javax.swing.JPanel();
+        jPsecond = new javax.swing.JPanel();
+        jPaw = new javax.swing.JPanel();
         mDPData = new javax.swing.JPanel();
         mDLFirstName = new javax.swing.JLabel();
         mDLLastName = new javax.swing.JLabel();
@@ -332,22 +342,151 @@ public class MainWindow extends javax.swing.JFrame {
 
         guiPanel.add(startscreen, "card2");
 
-        mDPEquip.setLayout(new java.awt.CardLayout());
+        jTPequip.setBorder(javax.swing.BorderFactory.createTitledBorder("Choose your armor"));
 
-        empty.setBorder(javax.swing.BorderFactory.createTitledBorder("Equipment"));
-
-        javax.swing.GroupLayout emptyLayout = new javax.swing.GroupLayout(empty);
-        empty.setLayout(emptyLayout);
-        emptyLayout.setHorizontalGroup(
-            emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPHelmetLayout = new javax.swing.GroupLayout(jPHelmet);
+        jPHelmet.setLayout(jPHelmetLayout);
+        jPHelmetLayout.setHorizontalGroup(
+            jPHelmetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
-        emptyLayout.setVerticalGroup(
-            emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 533, Short.MAX_VALUE)
+        jPHelmetLayout.setVerticalGroup(
+            jPHelmetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
         );
 
-        mDPEquip.add(empty, "card12");
+        jTPequip.addTab("Helmet", jPHelmet);
+
+        javax.swing.GroupLayout JParmorLayout = new javax.swing.GroupLayout(JParmor);
+        JParmor.setLayout(JParmorLayout);
+        JParmorLayout.setHorizontalGroup(
+            JParmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        JParmorLayout.setVerticalGroup(
+            JParmorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Armor", JParmor);
+        JParmor.getAccessibleContext().setAccessibleName("");
+
+        javax.swing.GroupLayout JPglovesLayout = new javax.swing.GroupLayout(JPgloves);
+        JPgloves.setLayout(JPglovesLayout);
+        JPglovesLayout.setHorizontalGroup(
+            JPglovesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        JPglovesLayout.setVerticalGroup(
+            JPglovesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Gloves", JPgloves);
+
+        javax.swing.GroupLayout jPshoesLayout = new javax.swing.GroupLayout(jPshoes);
+        jPshoes.setLayout(jPshoesLayout);
+        jPshoesLayout.setHorizontalGroup(
+            jPshoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPshoesLayout.setVerticalGroup(
+            jPshoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Shoes", jPshoes);
+
+        javax.swing.GroupLayout jPringLayout = new javax.swing.GroupLayout(jPring);
+        jPring.setLayout(jPringLayout);
+        jPringLayout.setHorizontalGroup(
+            jPringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPringLayout.setVerticalGroup(
+            jPringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Ring", jPring);
+
+        javax.swing.GroupLayout jPearringLayout = new javax.swing.GroupLayout(jPearring);
+        jPearring.setLayout(jPearringLayout);
+        jPearringLayout.setHorizontalGroup(
+            jPearringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPearringLayout.setVerticalGroup(
+            jPearringLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Earring", jPearring);
+
+        javax.swing.GroupLayout jPbeltLayout = new javax.swing.GroupLayout(jPbelt);
+        jPbelt.setLayout(jPbeltLayout);
+        jPbeltLayout.setHorizontalGroup(
+            jPbeltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPbeltLayout.setVerticalGroup(
+            jPbeltLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Belt", jPbelt);
+
+        javax.swing.GroupLayout jPneglaceLayout = new javax.swing.GroupLayout(jPneglace);
+        jPneglace.setLayout(jPneglaceLayout);
+        jPneglaceLayout.setHorizontalGroup(
+            jPneglaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPneglaceLayout.setVerticalGroup(
+            jPneglaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Neglace", jPneglace);
+
+        javax.swing.GroupLayout jPmainLayout = new javax.swing.GroupLayout(jPmain);
+        jPmain.setLayout(jPmainLayout);
+        jPmainLayout.setHorizontalGroup(
+            jPmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPmainLayout.setVerticalGroup(
+            jPmainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Main Weapon", jPmain);
+
+        javax.swing.GroupLayout jPsecondLayout = new javax.swing.GroupLayout(jPsecond);
+        jPsecond.setLayout(jPsecondLayout);
+        jPsecondLayout.setHorizontalGroup(
+            jPsecondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPsecondLayout.setVerticalGroup(
+            jPsecondLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Offhand", jPsecond);
+
+        javax.swing.GroupLayout jPawLayout = new javax.swing.GroupLayout(jPaw);
+        jPaw.setLayout(jPawLayout);
+        jPawLayout.setHorizontalGroup(
+            jPawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        jPawLayout.setVerticalGroup(
+            jPawLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
+
+        jTPequip.addTab("Awakened", jPaw);
 
         mDPData.setBorder(javax.swing.BorderFactory.createTitledBorder("Member Data"));
 
@@ -622,20 +761,22 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(mDPData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mDPArmor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mDPEquip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTPequip, javax.swing.GroupLayout.DEFAULT_SIZE, 657, Short.MAX_VALUE))
         );
         addMemberPanelLayout.setVerticalGroup(
             addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addMemberPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mDPEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(addMemberPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTPequip)
                     .addGroup(addMemberPanelLayout.createSequentialGroup()
                         .addComponent(mDPData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(mDPArmor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(13, 13, 13))
+                .addGap(60, 60, 60))
         );
+
+        jTPequip.getAccessibleContext().setAccessibleName("");
 
         guiPanel.add(addMemberPanel, "card4");
 
@@ -772,13 +913,13 @@ public class MainWindow extends javax.swing.JFrame {
         System.out.println(help);
         EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("bdo-managerPU");
         EntityManager em = emf.createEntityManager();
-        member mem = em.find(member.class, (long)1);
+        //member mem = em.find(member.class, (long)1);
         
-        TypedQuery<member> query = em.createQuery("SELECT m FROM member m WHERE lastname = "+"\""+help+"\"", member.class);
+        TypedQuery<member> query = em.createQuery("SELECT m FROM member m WHERE m.lastname = "+"\""+help+"\"", member.class);
         List<member> results = query.getResultList();
         for (member m : results) {
             em.getTransaction().begin();
-            em.remove(mem);
+            em.remove(m);
             em.getTransaction().commit();
         }
         dtm.removeRow(selectedRows); 
@@ -913,6 +1054,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JParmor;
+    private javax.swing.JPanel JPgloves;
     private javax.swing.JButton addMember;
     private javax.swing.JPanel addMemberMenu;
     private javax.swing.JPanel addMemberPanel;
@@ -929,7 +1072,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton deleteMember;
     private javax.swing.JLabel earringLabel1;
     private javax.swing.JLabel earringLabel2;
-    private javax.swing.JPanel empty;
     private javax.swing.JButton equipmentButton;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel glovesLabel;
@@ -945,6 +1087,16 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel helmetLabel;
     private javax.swing.JLabel helmetcLabel1;
     private javax.swing.JLabel helmetcLabel2;
+    private javax.swing.JPanel jPHelmet;
+    private javax.swing.JPanel jPaw;
+    private javax.swing.JPanel jPbelt;
+    private javax.swing.JPanel jPearring;
+    private javax.swing.JPanel jPmain;
+    private javax.swing.JPanel jPneglace;
+    private javax.swing.JPanel jPring;
+    private javax.swing.JPanel jPsecond;
+    private javax.swing.JPanel jPshoes;
+    private javax.swing.JTabbedPane jTPequip;
     private javax.swing.JComboBox<String> mDCClass;
     private javax.swing.JLabel mDLClass;
     private javax.swing.JLabel mDLFirstName;
@@ -952,7 +1104,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel mDLLevel;
     private javax.swing.JPanel mDPArmor;
     private javax.swing.JPanel mDPData;
-    private javax.swing.JPanel mDPEquip;
     private javax.swing.JSpinner mDSLevel;
     private javax.swing.JTextField mDTFirstName;
     private javax.swing.JTextField mDTLastName;
